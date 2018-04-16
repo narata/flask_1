@@ -4,13 +4,13 @@
 # @File     : demo.py
 # @Software : PyCharm
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
 @app.route('/hello/')
 def hello_world():
-    return render_template('hello.html', name='Narata')
+    return render_template('hello.html', args=request.args.get('args', '1'))
 
 
 if __name__ == '__main__':
