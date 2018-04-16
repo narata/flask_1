@@ -43,7 +43,12 @@ def teardown_request(exception):
     db = getattr(g, 'db', None)
     if db is not None:
         db.close()
-        
+
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
     
 @app.route('/')
 def show_entries():
